@@ -81,3 +81,15 @@ ocorrencias <- ocorrencias |>
 
 write_xlsx(vitimas, "data/vitimas.xlsx")
 write_xlsx(ocorrencias, "data/ocorrencias.xlsx")
+
+
+#VDE2024
+url = 'https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/estatistica/download/dnsp-base-de-dados/bancovde-2024_.xlsx/@@download/file'
+download.file(url, destfile = 'VDE2024.xlsx', mode="wb")
+VDE2024 <- read_excel('VDE2024.xlsx', col_types = c("text", "text", "text", 
+                                                    "date", "text", "text", "numeric", 
+                                                    "numeric", "numeric", "numeric", 
+                                                    "numeric", "numeric", "text", "text", 
+                                                    "numeric"))
+file.remove("VDE2024.xlsx")
+saveRDS(VDE2024, 'data/VDE2024.rds')
